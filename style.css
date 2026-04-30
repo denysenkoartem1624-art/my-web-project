@@ -1,0 +1,29 @@
+
+:root {
+    --primary-color: #5912ff;
+    --text-color: #14142e;
+    --bg-color: #cde7ff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    line-height: 1.6;
+    padding: 40px;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+.nav-box a {
+    display: inline-block;
+    width: 120px;
+    padding: 5px 0;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    text-align: center;
+    margin-right: 10px;
+}
