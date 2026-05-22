@@ -1,4 +1,4 @@
-:root {
+::root {
     --primary-color: #5912ff;
     --text-color: #14142e;
     --bg-color: #cde7ff;
@@ -38,7 +38,8 @@ main {
 }
 
 a:focus,
-button:focus {
+button:focus,
+input:focus {
     outline: 3px solid #000;
     outline-offset: 2px;
 }
@@ -57,7 +58,6 @@ nav ul {
     padding: 0;
 }
 
-/* Додали стилізацію і для button, щоб нові кнопки виглядали як посилання */
 .nav-box a,
 .nav-box button {
     display: block;
@@ -87,9 +87,88 @@ nav ul {
     border-radius: 8px;
     border: 1px solid var(--primary-color);
 }
+#search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    font-family: inherit;
+    background-color: white;
+}
 
 @media (min-width: 768px) {
     header {
         display: flex;
         justify-content: space-between;
-        align-
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    .nav-box button {
+        width: auto;
+    }
+}
+
+.dark-theme {
+    background-color: #111;
+    color: #fff;
+}
+
+.dark-theme h1, 
+.dark-theme h2, 
+.dark-theme h3 {
+    color: #cde7ff;
+}
+.dark-theme .project-card {
+    background-color: #222;
+    border-color: #cde7ff;
+}
+
+.dark-theme .nav-box a,
+.dark-theme .nav-box button {
+    color: #cde7ff;
+    border-color: #cde7ff;
+}
+
+.dark-theme #search-input {
+    background-color: #222;
+    color: #fff;
+    border-color: #cde7ff;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    color: #000;
+    padding: 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal.is-open {
+    display: block;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modal-content input,
+.modal-content button {
+    padding: 8px;
+    font-size: 1rem;
+}

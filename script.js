@@ -1,65 +1,78 @@
-
 console.log("JS connected!");
 
-const myProjects = [
-  { id: 1, title: "Сайт-візитка", tech: "HTML/CSS" },
-  { id: 2, title: "Магазин", tech: "JavaScript" }
-];
+// =========================================
+// ЧАСТИНА 1: Тема та Модальне вікно (З попередньої лаби)
+// =========================================
 
-console.log(myProjects[0]);
-console.log(myProjects[0].title);
+const themeToggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
 
-const list = document.querySelector('#projects-list');
-
-if (list) {
-  myProjects.forEach(project => {
-    const li = document.createElement('li');
-    li.textContent = project.title + " (" + project.tech + ")";
-    list.appendChild(li);
-  });
-}
-const themeBtn = document.querySelector('#theme-toggle');
-const bodyElement = document.body;
-
-if (themeBtn) {
-  themeBtn.addEventListener('click', () => {
-    bodyElement.classList.toggle('dark-theme');
-  });
-}
-
-const openBtn = document.querySelector('#open-modal');
-const closeBtn = document.querySelector('#close-modal');
-const modal = document.querySelector('#modal');
-
-if (openBtn && closeBtn && modal) {
-  openBtn.addEventListener('click', () => {
-    modal.classList.add('is-open');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    modal.classList.remove('is-open');
-  });
-}
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    if (modal) {
-        modal.classList.remove('is-open');
-    }
-  }
+themeToggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
 });
 
-const form = document.querySelector('#contact-form');
-const nameInput = document.querySelector('#user-name');
+const modal = document.getElementById('modal');
+const openModalBtn = document.getElementById('open-modal');
+const closeModalBtn = document.getElementById('close-modal');
 
-if (form && nameInput) {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
+openModalBtn.addEventListener('click', () => {
+    modal.classList.add('is-open');
+});
 
-    if (nameInput.value.trim().length < 2) {
-      alert("Ім'я має містити щонайменше 2 символи");
-    } else {
-      alert("Форму відправлено!");
+closeModalBtn.addEventListener('click', () => {
+    modal.classList.remove('is-open');
+});
+
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+        modal.classList.remove('is-open');
     }
-  });
+});
+
+
+// =========================================
+// ЧАСТИНА 2: Динамічний рендеринг та пошук (Нова лаба)
+// =========================================
+
+const projects = [
+    { id: 1, title: "Сайт-візитка", tech: "HTML/CSS" },
+    { id: 2, title: "Todo App", tech: "JavaScript" },
+    { id: 3, title: "Портфоліо", tech: "HTML/CSS/JS" }
+];
+
+// Функція створення HTML однієї картки
+function createProjectCard(project) {
+    return `
+        <article class="project-card">
+            <h3>${project.title}</h3>
+            <p>${project.tech}</p>
+        </article>
+    `;
+}
+
+const container = document.querySelector('#projects-container');
+
+// Функція рендерингу (через map)
+function renderProjects(list) {
+    if (!container) return;
+    const html = list.map(project => createProjectCard(project)).join('');
+    container.innerHTML = html;
+}
+
+// Виклик генерації при завантаженні сторінки
+renderProjects(projects);
+
+// Реалізація пошуку (Filter)
+const searchInput = document.querySelector('#search-input');
+
+if (searchInput) {
+    searchInput.addEventListener('input', () => {
+        const value = searchInput.value.toLowerCase();
+        
+        const filtered = projects.filter(project =>
+            project.title.toLowerCase().includes(value)
+        );
+        
+        renderProjects(filtered);
+    });
 }
