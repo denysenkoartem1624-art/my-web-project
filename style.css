@@ -57,13 +57,20 @@ nav ul {
     padding: 0;
 }
 
-.nav-box a {
+/* Додали стилізацію і для button, щоб нові кнопки виглядали як посилання */
+.nav-box a,
+.nav-box button {
     display: block;
     padding: 10px;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
+    background-color: transparent;
     text-decoration: none;
     text-align: center;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
 }
 
 .projects-container {
@@ -85,11 +92,4 @@ nav ul {
     header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-    }
-
-    nav ul {
-        flex-direction: row;
-    }
-}
+        align-

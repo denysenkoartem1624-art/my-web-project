@@ -20,7 +20,8 @@
                 <li><a href="#about">Про мене</a></li>
                 <li><a href="#skills">Навички</a></li>
                 <li><a href="#projects">Проєкти</a></li>
-                <li><a href="#contacts">Контакти</a></li>
+                <li><button id="theme-toggle">Змінити тему</button></li>
+                <li><button id="open-modal">Контакти</button></li>
             </ul>
         </nav>
     </header>
@@ -53,12 +54,27 @@
                     <p>Тренувальний проєкт для закріплення навичок роботи з Flexbox.</p>
                 </article>
             </div>
+            
+            <ul id="projects-list"></ul>
+            
         </section>
     </main>
 
     <footer>
-    
+        <p>© 2026 Артем Денисенко</p>
     </footer>
 
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button id="close-modal">Закрити</button>
+            <form id="contact-form">
+                <input type="text" id="user-name" placeholder="Ваше ім'я">
+                <button type="submit">Надіслати</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
 </body>
 </html>
