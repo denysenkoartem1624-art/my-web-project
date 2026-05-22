@@ -172,3 +172,24 @@ nav ul {
     padding: 8px;
     font-size: 1rem;
 }
+#loading {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.post {
+    border: 1px solid var(--primary-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.dark-theme .post {
+    background-color: #222;
+    border-color: #cde7ff;
+}
+
+.dark-theme #loading {
+    color: #cde7ff;
+}
