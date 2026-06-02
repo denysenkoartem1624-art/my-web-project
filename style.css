@@ -1,4 +1,4 @@
-::root {
+:root {
     --primary-color: #5912ff;
     --text-color: #14142e;
     --bg-color: #cde7ff;
@@ -87,6 +87,7 @@ nav ul {
     border-radius: 8px;
     border: 1px solid var(--primary-color);
 }
+
 #search-input {
     width: 100%;
     padding: 10px;
@@ -125,6 +126,7 @@ nav ul {
 .dark-theme h3 {
     color: #cde7ff;
 }
+
 .dark-theme .project-card {
     background-color: #222;
     border-color: #cde7ff;
@@ -141,6 +143,7 @@ nav ul {
     color: #fff;
     border-color: #cde7ff;
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -172,6 +175,7 @@ nav ul {
     padding: 8px;
     font-size: 1rem;
 }
+
 #loading {
     font-weight: bold;
     color: var(--primary-color);
@@ -192,4 +196,74 @@ nav ul {
 
 .dark-theme #loading {
     color: #cde7ff;
+}
+
+/* СТИЛІ ДЛЯ TODO СПИСКУ */
+.todo-control {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#task-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+#add-task {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+#task-list {
+    padding: 0;
+    list-style: none;
+}
+
+#task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: white;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+#task-list li button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.dark-theme #task-input {
+    background-color: #222;
+    color: #fff;
+    border-color: #cde7ff;
+}
+
+.dark-theme #task-list li {
+    background-color: #222;
+    color: #fff;
+    border-color: #cde7ff;
+}
+
+.dark-theme #add-task {
+    background-color: #cde7ff;
+    color: #111;
 }
